@@ -1,0 +1,31 @@
+{
+  "name": "@hqsports/nestjs-minio",
+  "version": "1.0.1",
+  "keywords": [
+    "nestjs",
+    "minio"
+  ],
+  "scripts": {
+    "build": "rimraf -rf dist && tsc -p tsconfig.json",
+    "prepublish": "npm run build",
+    "publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "minio": "^7.0.19"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.6"
+  },
+  "devDependencies": {
+    "@types/minio": "^7.0.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cheaprYang/nestjs-module"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "cheap",
+  "license": "MIT"
+}

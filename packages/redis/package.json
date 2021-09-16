@@ -1,0 +1,35 @@
+{
+  "name": "@hqsports/nestjs-redis",
+  "version": "1.0.1",
+  "description": "nest ioredis module ",
+  "keywords": [
+    "nestjs",
+    "redis"
+  ],
+  "scripts": {
+    "build": "rimraf -rf dist && tsc -p tsconfig.json",
+    "prepublish": "npm run build",
+    "publish": "npm publish --access public"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.6",
+    "@nestjs/core": "^8.0.6"
+  },
+  "dependencies": {
+    "redlock": "^4.2.0",
+    "ioredis": "^4.27.9"
+  },
+  "devDependencies": {
+    "@types/redlock": "^4.0.2",
+    "@types/ioredis": "^4.27.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cheaprYang/nestjs-module"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "cheap",
+  "license": "MIT"
+}
