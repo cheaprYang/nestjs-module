@@ -1,5 +1,6 @@
 import { Provider } from '@nestjs/common';
-import Redis from 'ioredis';
+import type {Redis,Cluster} from 'ioredis';
+import IoRedis from 'ioredis'
 import Redlock from 'redlock';
 import {
   REDIS_CLIENT,
@@ -14,12 +15,12 @@ export const createClient = (): Provider => ({
     cluster,
     clusterOptions = {},
     ...other
-  }: RedisModuleOptions): Promise<Redis.Redis | Redis.Cluster> => {
-    let client: Redis.Redis | Redis.Cluster;
+  }: RedisModuleOptions): Promise<Redis | Cluster> => {
+    let client: Redis | Cluster;
     if (cluster && Array.isArray(cluster)) {
-      client = new Redis.Cluster(cluster, clusterOptions);
+      client = new IoRedis.Cluster(cluster, clusterOptions);
     } else {
-      client = new Redis(other);
+      client = new IoRedis(other);
     }
 
     return client;
@@ -28,7 +29,7 @@ export const createClient = (): Provider => ({
 });
 export const createRedisLock = (): Provider => ({
   provide: REDIS_CLIENT_LOCK,
-  useFactory: async (client: Redis.Redis | Redis.Cluster): Promise<Redlock> => {
+  useFactory: async (client ): Promise<Redlock> => {
     const lock = new Redlock([client], {
       retryCount: 3,
       retryDelay: 100,

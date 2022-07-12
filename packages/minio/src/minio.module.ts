@@ -16,7 +16,7 @@ export interface MinioModuleOptions extends ClientOptions {
 @Module({
   providers: [MinioService],
 })
-export default class MinioModule {
+export  class MinioModule {
   public static forRoot(options: MinioModuleOptions): DynamicModule {
     const provider = createClient();
     return {

@@ -1,23 +1,23 @@
 {
-  "name": "@hqsports/nestjs-minio",
-  "version": "1.0.1",
+  "name": "@hqsports/minio",
+  "version": "1.1.0",
+  "main": "index.ts",
   "keywords": [
     "nestjs",
     "minio"
   ],
   "scripts": {
-    "build": "rimraf -rf dist && tsc -p tsconfig.json",
-    "prepublish": "npm run build",
-    "publish": "npm publish --access public"
+    "build": "rimraf -rf dist && tsc -p tsconfig.json"
   },
   "dependencies": {
-    "minio": "^7.0.19"
+    "minio": "^7.0.29",
+    "@types/minio": "^7.0.13"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.6"
+    "@nestjs/common": "^8.0.0"
   },
   "devDependencies": {
-    "@types/minio": "^7.0.10"
+    "@nestjs/common": "^9.0.2"
   },
   "repository": {
     "type": "git",

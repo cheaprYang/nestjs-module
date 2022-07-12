@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Redis, Cluster, Ok } from 'ioredis';
+import {Redis, Cluster,Result} from 'ioredis';
 import { InjectRedis } from './redis.decorator';
 import { lockOption } from './redis.interface';
 
@@ -35,7 +35,7 @@ export class RedisService {
    * @param {any}   data
    * @param {number} time
    */
-  public async set(key: string, data: any, time?: number): Promise<Ok | null> {
+  public async set(key: string, data: any, time?: number): Promise<Result<'OK', any> | null> {
     if (time) {
       return await this.redisClient.set(key, data, 'EX', time);
     } else {
@@ -53,7 +53,7 @@ export class RedisService {
     key: string,
     data: T,
     time?: number,
-  ): Promise<Ok | null> {
+  ): Promise<Result<'OK', any> | null> {
     if (time) {
       return await this.redisClient.set(key, JSON.stringify(data), 'EX', time);
     } else {
@@ -74,7 +74,7 @@ export class RedisService {
     if (value) return true;
     return false;
   }
-  public async ttl(key: string): Promise<number> {
+  public async ttl(key: string) {
     return await this.redisClient.ttl(key);
   }
 

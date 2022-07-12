@@ -1,6 +1,6 @@
 {
   "name": "nestjs-module",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "private": true,
   "workspaces": [
     "./packages/*"
@@ -9,12 +9,12 @@
     "prettier": "prettier --check 'packages/**/{src,test}/**/*.ts'",
     "clean": "pnpm recursive exec -- rm -rf node_modules;  rm -rf node_modules",
     "build": "pnpm recursive run build",
-    "prebuild": "pnpm recursive run prebuild",
-    "publish": "pnpm recursive run publish"
+    "prepublish": "pnpm recursive run build",
+    "publish": "pnpm recursive  publish --no-git-checks"
   },
   "devDependencies": {
-    "prettier": "^2.3.1",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "typescript": "~4.3.2"
+    "typescript": "~4.7.4"
   }
 }
