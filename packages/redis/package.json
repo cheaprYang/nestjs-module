@@ -1,7 +1,7 @@
 {
   "name": "@hqsports/redis",
   "version": "1.2.0",
-  "main": "index.ts",
+  "main": "index.js",
   "description": "nest ioredis module ",
   "keywords": [
     "nestjs",
