@@ -11,8 +11,8 @@
     "build": "rimraf -rf dist && tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0"
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0"
   },
   "dependencies": {
     "redlock": "^4.2.0",
